@@ -11,6 +11,9 @@ public class Tv {
         System.out.println("\tSistema de Gerenciamento de Televisões\n");
         do{
         	start();
+        	if(opc!=1 && opc!=2 && opc!=0) {
+            	System.out.println("Opção Inválida!\n");
+           }
         }while(opc!=0);
         System.out.println("Até logo ;)");
         sc.close();
@@ -36,13 +39,13 @@ public class Tv {
      	   switch(aux){
      	   case 1:
      		   if(opc==1 && tvs.state == false) {
-     			   
+     			   tvs.on(opc);
      		   }else if(opc==1 && tvs.state == true) {
      			   
      			   System.out.println("A TV da Sala foi desligada!");
      		   } 
      		   if(opc==2 && tvq.state == false) {
-     			   
+     			   tvq.on(opc);
      		   }else if(opc==2 && tvq.state == true) {
      			   
      			   System.out.println("A TV do Quarto foi desligada!");
@@ -101,8 +104,18 @@ public class Tv {
      	   }
         }   
 	}
-	public void on() {
-		
+	public void on(int opc) {
+		if(opc==1){
+            tvs.state = true;
+            tvs.volume = 0;
+            tvs.channel = 1;
+            System.out.println("A televisão da Sala está ligada no canal "+tvs.channel+" e no volume "+tvs.volume);
+        }else if(opc==2){
+            tvq.state = true;
+            tvq.volume = 0;
+            tvq.channel = 1;
+            System.out.println("A televisão do Quarto está ligada no canal "+tvq.channel+" e no volume "+tvq.volume);
+        }
 	}
 	public void off() {
 		
